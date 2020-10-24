@@ -1,6 +1,6 @@
 <template>
 <div class="wrap"><!-- style="overflow-x: hidden;" -->
-        <cart-Header></cart-Header>
+        <common-Header></common-Header>
         <div class="cart_box">
             <cartGoodsItem v-for="(item,index) in this.shopping()" :key="index" :info="item" :index="index"></cartGoodsItem>
         </div>

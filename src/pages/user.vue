@@ -1,6 +1,6 @@
 <template>
     <div class="wrap">
-        <user-Header></user-Header>
+        <common-Header></common-Header>
         <div class="usercenter">
             <div class="userbg">
                 <div class="userinfo">

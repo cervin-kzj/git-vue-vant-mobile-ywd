@@ -13,35 +13,36 @@ import "./assets/js/scale.js"
 import "./assets/js/html5shiv.js"
 
 // Vant配置
-import Vant,{Lazyload} from 'vant';
+import Vant, { Lazyload } from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Vant);
 Vue.use(Lazyload);
 
 // 全局过滤器 import命令可以使用任意名称指向./filter/index.js 不需要知道模块输出的函数名 此时的import命令不需要{}
 import filter from './filter/index.js'
-for(let i in filter){
-  Vue.filter(i,filter[i]);
+for (let i in filter) {
+  Vue.filter(i, filter[i]);
 }
 
 // 公共组件
 import commonComponent from './common/index.js'
-for(let i in commonComponent){
-  Vue.component(i,commonComponent[i]);
+for (let i in commonComponent) {
+  Vue.component(i, commonComponent[i]);
 }
 
 router.beforeEach((to, from, next) => {
-  if(to.matched.some(record => record.meta.requiresAuth)) {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
     // console.log(store.getters.islogin);
-    if(store.getters.islogin) {
-      next();      
-    }
-    else{
-      next('/login'); 
-    }
-  } 
+    // if(store.getters.islogin) {
+    //   next();      
+    // }
+    // else{
+    //   next('/login'); 
+    // }
+    next();
+  }
   else {
-    next(); 
+    next();
   }
 })
 
