@@ -1,6 +1,6 @@
 <template>
-<div class="wrap"><!-- style="overflow-x: hidden;" -->
-        <common-Header></common-Header>
+<div class="wrap">
+        <!-- <common-Header></common-Header>
         <div class="cart_box">
             <cartGoodsItem v-for="(item,index) in this.shopping()" :key="index" :info="item" :index="index"></cartGoodsItem>
         </div>
@@ -10,10 +10,6 @@
                     <input type="checkbox" v-model="checkAll">
                     <i>全选</i>
                 </span>
-                <!-- <span class="edit">
-                    <input type="checkbox">
-                    <i>编辑</i>
-                </span> -->
                 <span class="amount">
                     <em>合计:{{total | filterPrice(2,"¥")}}</em>
                     <br>
@@ -22,27 +18,27 @@
             </div>
             <button @click="checkout()">去结算</button>
         </div>
-        <common-Footer></common-Footer>
+        <common-Footer></common-Footer> -->
     </div>
 </template>
 <script>
 import cartGoodsItem from "../components/cartGoodsItem"
-import {mapGetters,mapActions} from "vuex"
+// import {mapGetters,mapActions} from "vuex"
 export default {
     components:{
         cartGoodsItem:cartGoodsItem
     },
     methods: {
-        ...mapGetters(['shopping']),
-        ...mapActions(['changeInfoAction']),
-        checkout:function(){
-            let bool=this.cartArr.every((item)=>{
-                return item.checked == false
-            });
-            if(bool==true){
-                this.changeInfoAction("请选择要结算的商品");
-            }
-        }
+        // ...mapGetters(['shopping']),
+        // ...mapActions(['changeInfoAction']),
+        // checkout:function(){
+        //     let bool=this.cartArr.every((item)=>{
+        //         return item.checked == false
+        //     });
+        //     if(bool==true){
+        //         this.changeInfoAction("请选择要结算的商品");
+        //     }
+        // }
     },
     mounted(){
         this.shopping().forEach((item,index)=>{

@@ -80,7 +80,7 @@
 import evalute from "../components/evaluate"
 import vPicker from "../components/picker"
 import {requestDetailData} from "../until/request"
-import {mapActions,mapGetters} from "vuex"
+// import {mapActions,mapGetters} from "vuex"
 
 export default {
     components:{
@@ -88,8 +88,8 @@ export default {
         vPicker:vPicker
     },
     methods: {
-        ...mapActions(['addShopAction','changeInfoAction','updateShopAction']),
-        ...mapGetters(['shopping']),
+        // ...mapActions(['addShopAction','changeInfoAction','updateShopAction']),
+        // ...mapGetters(['shopping']),
         addShop:function(){
             let arr = this.detail.buySelect.map(item => {
                 return item.list[item.num];

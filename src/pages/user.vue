@@ -57,10 +57,13 @@
 import { mapGetters } from "vuex";
 export default {
   computed: {
-    ...mapGetters(["islogin"]),
+    ...mapGetters({
+      islogin: "user/getIsLogin",
+      userInfo: "user/getUserInfo",
+    }),
     Tips() {
       if (this.islogin) {
-        return "昵称";
+        return this.userInfo.phone;
       } else {
         return "点击登录";
       }

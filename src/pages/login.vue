@@ -39,7 +39,9 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["changeIsloginAction"]),
+    ...mapActions({
+      changeIsloginAction: "user/changeIsloginAction",
+    }),
     login: function () {
       if (this.phone == "") {
         Toast("请输入手机号");
@@ -55,20 +57,14 @@ export default {
       }
       this.user.phone = this.phone;
       this.user.password = this.password;
-
-      requestLogin(this.user)
-        .then((res) => {
-          if (res.data.status == 1) {
-            Toast(res.data.msg);
-            this.changeIsloginAction(true);
-            this.$router.go(-1);
-          } else {
-            Toast("登录失败");
-          }
-        })
-        .catch((error) => {
-          console.warn(error);
-        });
+      this.changeIsloginAction(this.user).then(
+        (reslove) => {
+          this.$router.go(-1);
+        },
+        (reject) => {
+          Toast(reject);
+        }
+      );
     },
   },
 };
