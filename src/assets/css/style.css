@@ -795,7 +795,7 @@
 }
 
 .index_p-price {
-    display: inline-block;
+    float: left;
     color: #e60012;
     font-size: 0.22rem;
     height: 0.22rem;
@@ -807,13 +807,22 @@
     padding-right: 0.4rem;
     color: #666;
     font-size: 0.18rem;
-    height: 0.18rem;
-    line-height: 0.18rem;
+    height: 0.22rem;
+    line-height: 0.22rem;
 }
 
 .index_pricing {
-    position: relative;
     margin: 0.1rem 0rem 0.18rem;
+}
+
+.index_pricing::after {
+    content: "";
+    display: block;
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+    height: 0;
+    overflow: hidden;
 }
 
 .cateitem {

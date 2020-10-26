@@ -78,7 +78,6 @@ const mutations = {
     },
     changeIsloginAction(state, isLogin) {
         state.isLogin = isLogin
-
     }
 }
 

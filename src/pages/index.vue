@@ -4,7 +4,7 @@
     <div class="container">
       <!-- 父传子 -->
       <indexCateItem
-        v-for="(item, index) in indexData"
+        v-for="(item, index) in getHomeData"
         :key="index"
         :indexdt="item"
       ></indexCateItem>
@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import { requestIndexData } from "../until/request";
+import { mapActions, mapGetters } from "vuex";
 import indexCateItem from "../components/indexCateItem";
 import indexBanner from "../components/indexBanner";
 export default {
@@ -25,24 +25,21 @@ export default {
     indexCateItem: indexCateItem,
     indexBanner: indexBanner,
   },
-
+  methods: {
+    ...mapActions({
+      setIndexDataInfoAction: "home/setIndexDataInfoAction",
+    }),
+  },
+  computed: {
+    ...mapGetters({
+      getHomeData: "home/getHomeData",
+    }),
+  },
   mounted() {
-    requestIndexData()
-      .then((res) => {
-        if (res.data.success == true) {
-          this.indexData = res.data.data;
-        } else {
-          console.log(res.data.msg);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.setIndexDataInfoAction();
   },
   data() {
-    return {
-      indexData: "",
-    };
+    return {};
   },
 };
 </script>
