@@ -26,7 +26,7 @@
 </template>
 <script>
 // 大括号内的变量名必须与抛出名称一致
-import { Button, Form, Toast } from "vant";
+import { Button, Toast } from "vant";
 import { requestLogin } from "../until/request";
 import { mapActions } from "vuex";
 
@@ -39,7 +39,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["changeInfoAction", "changeIsloginAction"]),
+    ...mapActions(["changeIsloginAction"]),
     login: function () {
       if (this.phone == "") {
         Toast("请输入手机号");
@@ -61,7 +61,7 @@ export default {
           if (res.data.status == 1) {
             Toast(res.data.msg);
             this.changeIsloginAction(true);
-            this.$router.push("/user");
+            this.$router.go(-1);
           } else {
             Toast("登录失败");
           }

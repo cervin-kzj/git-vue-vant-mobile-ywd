@@ -18,16 +18,15 @@
       <div class="btn reg">
         <van-button type="primary" @click="register">下一步</van-button>
       </div>
-      <!-- 测试用无意义{{info}} -->
       <div class="agreement clearfix">
         <input type="checkbox" v-model="checked" />
-        <span>我已阅读并同意使用<a>条款和隐私政策</a></span>
+        <span>我已阅读并同意使用<router-link to="/">条款和隐私政策</router-link></span>
       </div>
     </div>
   </div>
 </template>
 <script>
-import { Button, Toast } from "vant";
+import { Button, Toast} from "vant";
 import { requestRegiser } from "../until/request";
 import { mapActions } from "vuex";
 

@@ -42,4 +42,7 @@ export default {
 .van-hairline--bottom::after {
   border: none;
 }
+.van-nav-bar__left , .van-nav-bar__right {
+  padding: 0 !important;
+}
 </style>

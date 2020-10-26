@@ -9,8 +9,8 @@
 import { mapGetters } from "vuex";
 export default {
   computed: {
-    ...mapGetters(["info"])
-  }
+    ...mapGetters(["info"]),
+  },
 };
 </script>
 
