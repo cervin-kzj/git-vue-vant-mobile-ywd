@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <van-nav-bar title="NavBar" left-arrow>
+    <van-nav-bar title="NavBar" left-arrow @click-left="onClickLeft">
       <template #right>
         <van-icon name="search" />
       </template>
@@ -11,7 +11,7 @@
 import { NavBar } from "vant";
 export default {
   methods: {
-    goback: function () {
+    onClickLeft: function () {
       this.$router.go(-1);
     },
   },
@@ -42,7 +42,8 @@ export default {
 .van-hairline--bottom::after {
   border: none;
 }
-.van-nav-bar__left , .van-nav-bar__right {
+.van-nav-bar__left,
+.van-nav-bar__right {
   padding: 0 !important;
 }
 </style>
