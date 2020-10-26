@@ -30,6 +30,15 @@ for (let i in commonComponent) {
   Vue.component(i, commonComponent[i]);
 }
 
+// import vueFocus from "./directive/focus";
+// Vue.use(vueFocus);
+
+Vue.directive('focus', {
+  inserted: function (el) {
+    el.focus()
+  }
+})
+
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     // console.log(store.getters.islogin);
